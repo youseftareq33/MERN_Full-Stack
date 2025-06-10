@@ -12,8 +12,7 @@ function App() {
   // name: is the value that assign using use-state by setName
   // setName: function to change state (change text) of name
   // useState: has the current state
-
-  const[count,setCount]=useState(0);
+  
 
   return (
     <div className="App">
@@ -27,10 +26,6 @@ function App() {
       <h1>With useState</h1>
       <input type='text' placeholder='Enter Name' value={name} onChange={(e)=>setName(e.target.value)}></input>
       <p>Hello, {name}</p>
-
-      <br></br><br></br>
-      <p>u clicked {count} times</p>
-      <button onClick={()=>setCount(count+1)}>Click Me</button>
       
     </div>
   );
