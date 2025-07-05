@@ -44,6 +44,14 @@ app.get('/users/:id',(request,response)=>{
 
 app.post("/users/add",(req,res) =>{
 
+    if(!req.body.name){
+        res.status(400).json("Please fill name !!!");
+    }
+
+    if(req.body.name.length<3){
+        res.status(400).json("name must be more than 2 character !!!");
+    }
+
     const user =
     {
         id : users.length+1 ,
