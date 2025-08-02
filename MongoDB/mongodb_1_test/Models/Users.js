@@ -15,4 +15,10 @@ const UserSchema=new mongoose.Schema({
         required:true,
         minlength:3
     }
-})
+});
+
+const Users =mongoose.model("Users",UserSchema);
+
+module.exports ={
+    Users
+}

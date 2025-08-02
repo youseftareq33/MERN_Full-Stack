@@ -1,7 +1,7 @@
 const express=require('express');
 const Joi=require('joi');
 const mongoose=require('mongoose');
-const {Users}=require('./Models/Users');
+const {Users} = require("./Models/Users");
 
 // init app
 const app=express();
@@ -19,8 +19,21 @@ app.get('/',(request,response)=>{
     response.send("Hi from nodemon");
 });
 
-// post
 
+app.get("/users/:id",(req,res) => {
+const user =Users.find(x=>x.id === parseInt(req.params.id));
+if (user)
+{
+    res.status(200).json(user);
+}
+else
+{
+    res.status(404).json({messsage:"user node found"});
+}
+});
+
+
+// post
 app.post("/users/add",async (req,res) =>{
 
     const schema=Joi.object({
@@ -51,7 +64,10 @@ app.post("/users/add",async (req,res) =>{
     
 
 }
-)
+);
+
+
+
 
 
 
